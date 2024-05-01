@@ -1,7 +1,6 @@
 
-
- <div class="main-div">
-    <span class="order-text">Order Summary</span>
+<div class="main-div"  *ngIf="orders">
+    <!-- <span class="order-text">Order Summary</span> -->
     <div *ngFor="let cartdata of cart">
         <div class="container">
     <div class="inner-div1">
@@ -15,9 +14,19 @@
             <span>{{cartdata.author}}</span>
         </div>
         <div class="amount">
-            {{cartdata.price*cartdata.quantity}}<span>Rs.2000</span>
+            {{cartdata.quantity*cartdata.price}}<span>Rs.2000</span>
         </div>
+    </div>
+    <div class="inner-div3">
+        <ul>
+            <li>
+                <b>Order placed on March 26</b>
+            </li>
+        </ul>
     </div>
         </div>
     </div>
+    
+    
+    
 </div>

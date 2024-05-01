@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../Services/Book/book.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginSignupComponent } from '../login-signup/login-signup.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { LoginSignupComponent } from '../login-signup/login-signup.component';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private book:BookService,public dialog:MatDialog){}
+  constructor(private book:BookService,public dialog:MatDialog,public router:Router){}
 
 cartvalue:any=[]
 servercartvalue:any
@@ -86,8 +87,14 @@ decrement(cartItem: any){
   
 }
 
+
+
 handleevent($event:any){
   this.ordersummary=$event
+}
+orderSucess(){
+  this.book.button=true
+    this.router.navigate(['dashboard/ordersucess'])
 }
 opendialog() {
   debugger;

@@ -40,5 +40,14 @@ profile(){
   this.router.navigate(['dashboard/personal'])
   console.log('Personal');
 }
+gotoCarts(){
+  this.router.navigate(['dashboard/carts'])
+}
+gotoWish(){
+  this.router.navigate(['dashboard/wish'])
+}
+gotoOrders(){
+  this.router.navigate(['dashboard/orderss'])
+}
 }
 

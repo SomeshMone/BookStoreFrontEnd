@@ -30,6 +30,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { SearchBookPipe } from './Pipes/search-book.pipe';
 import { CartComponent } from './Components/cart/cart.component';
 import { OrdersummaryComponent } from './Components/ordersummary/ordersummary.component';
+import { OrdersuccessComponent } from './Components/ordersuccess/ordersuccess.component';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { OrdersComponent } from './Components/orders/orders.component';
+import { BookDetailsComponent } from './Components/book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { OrdersummaryComponent } from './Components/ordersummary/ordersummary.co
     CardsComponent,
     SearchBookPipe,
     CartComponent,
-    OrdersummaryComponent
+    OrdersummaryComponent,
+    OrdersuccessComponent,
+    WishlistComponent,
+    OrdersComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <div class="book-id">
-    <span routerLink="/carts" style="padding-bottom: 15px;">Home/</span> Cart
+    <span routerLink="/carts">Home/</span> Cart
     </div>
 <div class="main-div">
     <span style="padding-left: 25px;">My Cart({{cart.length}})</span>
@@ -57,9 +57,9 @@
     <span>Order Summary</span>
 
 </div>
-<!-- <div class="order-summary" *ngIf="ordersummary">
+ <div class="order-summary" *ngIf="ordersummary">
     <app-ordersummary></app-ordersummary>
     <div class="checkout" *ngIf="cart.length>0">
         <button (click)="orderSucess()">CHECK OUT</button>
     </div>
-</div> -->
+</div>

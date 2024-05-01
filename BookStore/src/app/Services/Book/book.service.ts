@@ -12,6 +12,8 @@ export class BookService {
   token:any
   Books:Book[]=[]
   Carts:Cart[]=[]
+  button:boolean=false
+  Whishlist:any=[]
 
   constructor(private httpService:HttpService,private http:HttpClient) {this.token=localStorage.getItem('token') }
 
@@ -52,6 +54,65 @@ export class BookService {
     }
     return this.httpService.getService(`https://localhost:7145/api/CartList/GetCard?userid=${userid}`,true,header);
   }
+
+  private whishList=new BehaviorSubject<any>([]);
+  currWhishList=this.whishList.asObservable();
+
+  updatewhishList(newValue:any){
+    this.whishList.next(newValue);
+  }
+
+  wishList(reqData:any):Observable<any>{
+    const userid=reqData.userid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.getService(`https://localhost:7145/api/WishList/GetWhishList?userid=${userid}`,true,header);
+  }
+
+  getAllOrders(reqData:any):Observable<any>{
+    const userid=reqData.userid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.getService(`https://localhost:7145/api/Order/GetAllOrder?userid=${userid}`,true,header);
+  }
+  deleteWish(reqData:any):Observable<any>{
+    const userid=reqData.userid;
+    const bookid=reqData.bookid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+      
+    }
+    return this.httpService.postServiceReset('https://localhost:7145/api/WishList/DeleteWhishList',reqData,true,header);
+  }
+  addWish(reqData:any):Observable<any>{
+    const userid=reqData.userid;
+    const bookid=reqData.bookid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+      
+    }
+    return this.httpService.putService('https://localhost:7145/api/WishList/AddToWishList',reqData,true,header);
+  }
+
+
+
+
+ 
+
  
 }
   

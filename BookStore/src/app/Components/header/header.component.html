@@ -7,7 +7,7 @@
         </div>
         <div class="search">
             <mat-form-field appearance="fill" class="searchinput">
-                <mat-icon matPrefix>search</mat-icon>
+                <mat-icon  matPrefix>search</mat-icon>
                 <input matInput class="search-bar" type="text" placeholder="Search">
             </mat-form-field>
         </div>
@@ -46,12 +46,12 @@
                     <p style=" padding-left: 10px;font-size: 13px;">{{"Profile"}}</p>
                 </div>
                 <div class="orders">
-                    <img  class="shopping_bag" src="../../../assets/shopping_bag_FILL0_wght400_GRAD0_opsz24.svg"/>
+                    <img  class="shopping_bag" (click)="gotoOrders()" src="../../../assets/shopping_bag_FILL0_wght400_GRAD0_opsz24.svg"/>
                      <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">My Orders</p>
                     
                   </div>
                   <div class="orders">
-                    <img  class="shopping_bag" src="../../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg"/>
+                    <img  class="shopping_bag" (click)="gotoWish()" src="../../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg"/>
                      <p style="padding-top: 10px;padding-left: 8px;font-size: 13px;">Whishlist</p>
                   </div>
                   <div class="lbutton">
@@ -61,7 +61,7 @@
         </div>
 
         <div class="wishlist-icon">
-            <img src="../../../assets/supermarket.svg" >
+            <img  class="cart-icon" src="../../../assets/supermarket.svg"  (click)="gotoCarts()">
             <p style="color: white;font-size: 10px;padding-bottom: 10px;">Cart</p>
           </div>
     
