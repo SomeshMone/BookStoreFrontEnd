@@ -96,8 +96,7 @@ export class BookService {
     return this.httpService.postServiceReset('https://localhost:7145/api/WishList/DeleteWhishList',reqData,true,header);
   }
   addWish(reqData:any):Observable<any>{
-    const userid=reqData.userid;
-    const bookid=reqData.bookid;
+    
     let header={
       headers:new HttpHeaders({
         'Content-type':'application/json',
@@ -105,7 +104,18 @@ export class BookService {
       })
       
     }
-    return this.httpService.putService('https://localhost:7145/api/WishList/AddToWishList',reqData,true,header);
+    return this.httpService.postService('https://localhost:7145/api/WishList/AddToWishList',reqData,true,header);
+  }
+
+  addcart(reqData:any):Observable<any>{
+    let userid=reqData.userid;
+    let header={
+      headers:new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.postService(`https://localhost:7145/api/CartList/AddToCart?userid=${userid}`,reqData,true,header);
   }
 
 
